@@ -8,9 +8,7 @@ A program that works like `ls` command on Ubuntu with flags:
 - -r
 - -t
 
-## Author
 
-* [@smslash](https://github.com/smslash)
 
 ## Run
 
