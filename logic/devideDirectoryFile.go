@@ -4,7 +4,12 @@ import (
 	"log"
 	"os"
 )
+//separates a list of paths into directories and files.
+/*:
 
+Splits a list of paths into directories and files/symlinks
+Useful for commands that need to process directories separately from files
+Stops the program if any path is invalid*/
 func DevideDirectoryFile(s []string) ([]string, []string) {
 	var ds []string
 	var fs []string

@@ -5,14 +5,16 @@ import (
 	"log"
 	"os"
 )
-
+/*Take a list of file or directory names (input)
+Check if each one exists in the current directory
+Print an error and exit if any file or directory is missing*/
 func IsExistFileOrDir(input []string) {
 	dir, err := os.Open(".")
 	if err != nil {
 		log.Fatalln("Error opening directory:", err)
 	}
 	defer dir.Close()
-
+ 
 	entries, err := dir.ReadDir(0)
 	if err != nil {
 		log.Fatalln("Error reading directory:", err)

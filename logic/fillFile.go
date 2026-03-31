@@ -14,11 +14,25 @@ import (
 	"git/ssengerb/my-ls-1/models"
 )
 
+
+/*It fills all fields of a models.File struct, including:
+
+Permissions
+Number of links
+Owner and group
+File size
+Last modified time
+File type (directory, regular file, symlink)
+Hidden status
+Symlink target if applicable
+
+It also updates Format to track the longest owner/group/size for formatting aligned output in PrintFull.*/
+
 var Format models.PrettyFormat
 
 func FillFile(path string, file *models.File) {
 	file.Permissions = findPermissions(path, *file)
-	file.Links = findLinks(path, *file)
+	file.Links = findLinks(path, *file)//
 	file.Owner = findOwner(path, *file)
 	if len(file.Owner) > Format.MaxOwnerName {
 		Format.MaxOwnerName = len(file.Owner)

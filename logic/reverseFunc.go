@@ -9,6 +9,13 @@ import (
 	"git/ssengerb/my-ls-1/models"
 )
 
+/*Lists files in a directory
+Sorts them (name or time)
+Optionally reverses them
+Prints them
+Then recursively visits subdirectories*/
+
+
 func ReverseFunc(list []models.File, flag models.FlagOptions, path string) {
 	fmt.Println(path + ":")
 	files, err := os.ReadDir(path)

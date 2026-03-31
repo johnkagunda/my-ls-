@@ -9,6 +9,12 @@ import (
 	"git/ssengerb/my-ls-1/models"
 )
 
+/*Reads a directory
+Builds a list of files
+Sorts them (by name or time)
+Prints them
+Then recursively visits subdirectories*/
+
 func ReverseHard(list []models.File, flag models.FlagOptions, path string) {
 	fmt.Println(path + ":")
 	files, err := os.ReadDir(path)
@@ -19,11 +25,11 @@ func ReverseHard(list []models.File, flag models.FlagOptions, path string) {
 	list = make([]models.File, len(files)+2)
 
 	cwd, err := os.Getwd()
-	if err != nil {
+	if err != nil {  
 		fmt.Println(err)
 		return
 	}
-	fullPath := filepath.Join(cwd, path)
+	fullPath := filepath.Join(cwd, path) //current file dir and  path
 	parentDir := filepath.Dir(fullPath)
 	FillCurrentDir(path, &list[len(files)+1])
 	list[len(files)+1].Name = "."

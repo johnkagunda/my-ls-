@@ -6,6 +6,14 @@ import (
 	"git/ssengerb/my-ls-1/models"
 )
 
+
+/*PrintDefault is the basic listing function:
+
+Prints only names, no sizes, permissions, or dates
+Adds color coding for directories and symlinks
+Supports hidden files with -a
+Adds spacing between items for readability*/
+
 func PrintDefault(flag models.FlagOptions, files []models.File) {
 	if flag.Flag_a {
 		for i := 0; i < len(files); i++ {
