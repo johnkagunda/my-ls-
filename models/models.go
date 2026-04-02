@@ -16,7 +16,7 @@ type File struct {
 	Permissions   string
 	Links         uint64
 	Owner         string
-	Group         string
+	Group         string//staff
 	Size          int64
 	Total         int64
 	Time          time.Time
